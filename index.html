@@ -1,68 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asif | Friday 3GB Claim</title>
+<meta charset="UTF-8">
+<title>Asif Friday 3GB Claim</title>
+<style>
+    body {
+        background:#0d0d0d;
+        color:#fff;
+        font-family:Arial, sans-serif;
+        text-align:center;
+        margin:0;
+        padding:0;
+    }
+    .card {
+        max-width:380px;
+        margin:60px auto;
+        background:#111;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 0 12px rgba(0,0,0,0.5);
+    }
+    h1 {
+        color:#e6b800;
+        font-size:26px;
+        margin-bottom:10px;
+    }
+    p {
+        color:#ccc;
+        font-size:15px;
+    }
+    .blackbox {
+        background:#000;
+        padding:12px;
+        margin:18px 0;
+        border-radius:8px;
+        font-size:18px;
+        font-weight:bold;
+        color:#e6b800;
+    }
+    .btn {
+        background:#e6b800;
+        color:#000;
+        padding:12px 18px;
+        border:none;
+        font-size:17px;
+        border-radius:8px;
+        cursor:pointer;
+        width:90%;
+        margin-top:10px;
+        font-weight:bold;
+    }
+    .btn:hover { background:#caa000; }
 
-    <style>
-        body {
-            background: #0b1220;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .box {
-            background: #1d2638;
-            padding: 20px;
-            border-radius: 12px;
-            max-width: 400px;
-            margin: auto;
-            border: 2px solid #ffffff20;
-        }
-
-        h1 {
-            color: #FFCC00;
-        }
-
-        button {
-            background: #FFCC00;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .info {
-            margin-top: 15px;
-            color: #aaa;
-            font-size: 14px;
-        }
-    </style>
+    .btn-telegram {
+        display:block;
+        background:#0088cc;
+        color:white !important;
+        padding:12px;
+        border-radius:8px;
+        margin-top:15px;
+        text-decoration:none;
+        font-size:16px;
+        font-weight:bold;
+    }
+    .status {
+        margin-top:15px;
+        color:#9fb2c9;
+        font-size:15px;
+    }
+</style>
 </head>
 
 <body>
+<div class="card">
+    <h1>Asif Friday 3GB Claim</h1>
+    <p>Click the button below to claim your Friday 3GB package.</p>
 
-    <div class="box">
-        <h1>Asif Friday 3GB Claim</h1>
-        <p>Click the button below to claim your Friday 3GB package.</p>
+    <div class="blackbox">Asif</div>
 
-        <button onclick="claim()">Claim Now</button>
+    <button class="btn" id="claimBtn">Claim Now</button>
 
-        <div class="info">
-            Powered by Asif • Friday Offer
-        </div>
-    </div>
+    <a href="https://t.me/kingyaseen1" target="_blank" class="btn-telegram">
+        Join Telegram for More Updates
+    </a>
 
-    <script>
-        function claim() {
-            alert("Asif! Your 3GB Friday claim request has been submitted (Demo).");
-        }
-    </script>
+    <div class="status" id="status"></div>
+</div>
+
+<script>
+document.getElementById("claimBtn").onclick = function() {
+    document.getElementById("status").innerText =
+        "Asif! Your 3GB Friday claim request has been submitted (Demo).";
+    alert("Asif! Your 3GB Friday claim request has been submitted (Demo).");
+};
+</script>
 
 </body>
 </html>
