@@ -1,173 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Asif | Friday 3GB Claim</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Asif — Friday 3GB Offer</title>
+<meta name="description" content="Asif Friday 3GB — public demo UI. For real offers use official operator channels."/>
 <style>
-    body {
-        margin:0;
-        padding:0;
-        background:#0d0f1a;
-        font-family:Arial, sans-serif;
-        color:white;
-    }
-
-    .header {
-        background:#111728;
-        padding:18px;
-        text-align:center;
-        font-size:22px;
-        font-weight:bold;
-        color:#ffd447;
-        box-shadow:0 3px 10px rgba(0,0,0,0.4);
-    }
-
-    .container {
-        max-width:500px;
-        margin:auto;
-        padding:20px;
-    }
-
-    .offer-box {
-        background:#141b2e;
-        padding:18px;
-        border-radius:12px;
-        margin-top:18px;
-        border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .title {
-        font-size:20px;
-        font-weight:bold;
-        color:#ffd447;
-        margin-bottom:6px;
-    }
-
-    .desc {
-        color:#b5c3d9;
-        font-size:15px;
-        margin-bottom:14px;
-    }
-
-    .task-box {
-        background:#0b0f1c;
-        padding:14px;
-        border-radius:10px;
-        margin-top:10px;
-        border:1px solid rgba(255,255,255,0.05);
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-    }
-
-    .task-left {
-        font-size:16px;
-        font-weight:600;
-    }
-
-    .task-btn {
-        padding:8px 12px;
-        background:#ffd447;
-        border-radius:6px;
-        color:black;
-        text-decoration:none;
-        font-weight:bold;
-        font-size:14px;
-    }
-
-    .claim-btn {
-        width:100%;
-        margin-top:20px;
-        padding:14px;
-        background:#ffd447;
-        color:black;
-        border:none;
-        border-radius:10px;
-        font-size:18px;
-        font-weight:bold;
-        cursor:pointer;
-    }
-
-    .telegram-btn {
-        width:100%;
-        text-align:center;
-        display:block;
-        padding:12px;
-        background:#0088cc;
-        color:white;
-        text-decoration:none;
-        margin-top:14px;
-        border-radius:10px;
-        font-size:16px;
-        font-weight:bold;
-    }
-
-    .footer {
-        text-align:center;
-        padding:14px;
-        font-size:13px;
-        color:#8fa0b9;
-        margin-top:30px;
-    }
-
+  :root{
+    --bg1:#041025; --bg2:#072033; --card:#0f1724;
+    --accent:#ffd24d; --muted:#9fb2c9; --tg:#0088cc;
+    --glass: rgba(255,255,255,0.03);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    color:#eaf2ff; background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    padding:18px; display:flex; align-items:center; justify-content:center;
+  }
+  .wrap{width:100%;max-width:940px}
+  .card{
+    display:grid; grid-template-columns:1fr 360px; gap:20px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+    border-radius:14px; padding:22px; border:1px solid var(--glass);
+    box-shadow:0 14px 40px rgba(2,8,24,0.6);
+  }
+  .left{padding:4px 8px}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:64px;height:64px;border-radius:12px;background:var(--accent);display:grid;place-items:center;color:#07121a;font-weight:900;font-size:22px}
+  .brand h3{margin:0;font-size:18px}
+  .brand p{margin:0;color:var(--muted);font-size:13px}
+  h1{margin:12px 0 6px 0;font-size:28px;color:var(--accent);line-height:1.05}
+  p.lead{margin:0;color:var(--muted);font-size:15px}
+  .steps{margin-top:16px;display:flex;flex-direction:column;gap:12px}
+  .step{
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+    border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.02);
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .step .left{display:flex;flex-direction:column}
+  .step .title{font-weight:800}
+  .step .subtitle{color:var(--muted);font-size:13px;margin-top:4px}
+  .btn{
+    background:var(--accent);color:#07121a;border:0;padding:10px 14px;border-radius:10px;font-weight:900;cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(255,210,77,0.14);font-weight:800;padding:9px 12px}
+  .right{display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px;border-radius:12px}
+  .badge{background:#000;padding:12px 16px;border-radius:10px;font-weight:900;color:var(--accent);font-size:16px}
+  .claim-area{width:100%;display:flex;flex-direction:column;gap:10px}
+  .claim-btn{background:var(--accent);color:#07121a;border:0;padding:12px;border-radius:10px;font-weight:900;font-size:16px;cursor:pointer}
+  .share-btn{background:transparent;color:var(--accent);border:1px solid rgba(255,210,77,0.12);padding:10px;border-radius:8px;font-weight:700}
+  .tg{display:block;width:100%;text-align:center;background:var(--tg);color:#fff;padding:11px;border-radius:10px;text-decoration:none;font-weight:800}
+  .status{color:var(--muted);font-size:14px;text-align:center;min-height:22px}
+  footer.note{margin-top:14px;color:var(--muted);font-size:13px;text-align:center}
+  .modal-back{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;z-index:60}
+  .modal{background:linear-gradient(180deg,#071022,#0a1624);padding:18px;border-radius:12px;max-width:520px;width:94%;border:1px solid rgba(255,255,255,0.03)}
+  .modal h4{margin:0 0 8px 0}
+  .modal p{margin:0;color:var(--muted)}
+  .modal .actions{display:flex;gap:10px;margin-top:12px;justify-content:flex-end}
+  .code-box{background:#021025;padding:12px;border-radius:8px;color:#cfefff;font-family:monospace;overflow:auto;font-size:15px;border:1px solid rgba(255,255,255,0.02)}
+  @media(max-width:880px){
+    .card{grid-template-columns:1fr; padding:16px}
+    .logo{width:52px;height:52px;font-size:18px}
+    h1{font-size:22px}
+  }
+  .card{animation:pop .4s ease both}
+  @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.996)}to{opacity:1;transform:none}}
 </style>
 </head>
-
 <body>
-
-<div class="header">
-    Asif Friday 3GB Claim
-</div>
-
-<div class="container">
-
-    <div class="offer-box">
-        <div class="title">Asif - Friday Special Offer</div>
-        <div class="desc">Complete the steps below to claim your 3GB Friday offer instantly.</div>
-
-        <!-- TASK 1 - Custom (No Gmail / No Ads) -->
-        <div class="task-box">
-            <div class="task-left">Step 1: Open Claim Page</div>
-            <a class="task-btn">Open</a>
+  <div class="wrap" role="main">
+    <div class="card" aria-label="Offer card">
+      <div class="left">
+        <div class="brand">
+          <div class="logo">A</div>
+          <div>
+            <h3>Asif</h3>
+            <p>Friday 3GB • Quick Claim</p>
+          </div>
         </div>
 
-        <!-- TASK 2 - Custom -->
-        <div class="task-box">
-            <div class="task-left">Step 2: Follow Instructions</div>
-            <a class="task-btn">Check</a>
+        <h1>Get 3GB — Friday Special</h1>
+        <p class="lead">Complete three simple steps below. After that press <strong>Claim</strong> to get a confirmation code (demo).</p>
+
+        <div class="steps" aria-label="Steps to claim">
+          <div class="step" data-step="1">
+            <div class="left">
+              <div class="title">Step 1 — Open Offer</div>
+              <div class="subtitle">Tap Open to view offer details. No signup required.</div>
+            </div>
+            <div class="action">
+              <button class="btn" data-action="open" data-step="1">Open</button>
+            </div>
+          </div>
+
+          <div class="step" data-step="2">
+            <div class="left">
+              <div class="title">Step 2 — Read Instructions</div>
+              <div class="subtitle">Follow the short instructions shown on the popup.</div>
+            </div>
+            <div class="action">
+              <button class="btn" data-action="open" data-step="2">Open</button>
+            </div>
+          </div>
+
+          <div class="step" data-step="3">
+            <div class="left">
+              <div class="title">Step 3 — Ready to Claim</div>
+              <div class="subtitle">After this press Claim to get a confirmation code (demo).</div>
+            </div>
+            <div class="action">
+              <button class="btn" data-action="open" data-step="3">Open</button>
+            </div>
+          </div>
         </div>
 
-        <!-- TASK 3 - Custom -->
-        <div class="task-box">
-            <div class="task-left">Step 3: Ready to Claim</div>
-            <a class="task-btn">Done</a>
+        <footer class="note">This is a public demo page. For real network offers always use official operator channels.</footer>
+      </div>
+
+      <aside class="right">
+        <div class="badge" aria-hidden="true">Asif</div>
+
+        <div class="claim-area">
+          <div style="display:flex;gap:10px">
+            <button class="claim-btn" id="claimMain">Get 3GB</button>
+            <button class="share-btn" id="shareBtn">Share</button>
+          </div>
+
+          <a class="tg" id="tgLink" href="https://t.me/kingyaseen1" target="_blank" rel="noopener noreferrer">Join Telegram for More Updates</a>
+
+          <div class="status" id="status">Ready — complete steps then claim.</div>
         </div>
-
-        <!-- CLAIM BUTTON -->
-        <button class="claim-btn" onclick="claimOffer()">CLAIM NOW</button>
-
-        <!-- TELEGRAM -->
-        <a href="https://t.me/kingyaseen1" class="telegram-btn" target="_blank">Join Telegram for More Updates</a>
-
-        <div id="status" style="margin-top:12px;color:#b5c3d9;font-size:15px;"></div>
+      </aside>
     </div>
+  </div>
 
-</div>
+  <!-- modal -->
+  <div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h4 id="modalTitle">Detail</h4>
+      <p id="modalText" style="margin-top:6px;color:var(--muted)"></p>
 
-<div class="footer">
-    © 2025 Asif Offer System — All Rights Reserved.
-</div>
+      <div id="modalExtra" style="display:none;margin-top:10px">
+        <div class="code-box" id="codeBox"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn secondary" id="modalClose">Close</button>
+        <button class="btn" id="modalCopy" style="display:none">Copy Code</button>
+      </div>
+    </div>
+  </div>
 
 <script>
-function claimOffer(){
-    document.getElementById("status").innerHTML = 
-        "Asif! Your Friday 3GB claim request has been received successfully.";
+(function(){
+  // modal elements
+  const modalBack = document.getElementById('modalBack');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalText = document.getElementById('modalText');
+  const modalExtra = document.getElementById('modalExtra');
+  const codeBox = document.getElementById('codeBox');
+  const modalClose = document.getElementById('modalClose');
+  const modalCopy = document.getElementById('modalCopy');
 
-    // Optional Auto-open Telegram
-    // window.open("https://t.me/kingyaseen1", "_blank");
-}
+  function openModal(){ modalBack.style.display='flex'; modalBack.setAttribute('aria-hidden','false'); }
+  function closeModal(){ modalBack.style.display='none'; modalBack.setAttribute('aria-hidden','true'); }
+
+  const steps = {
+    1: {title:'Open Offer', text:'This page shows how the Friday 3GB offer looks — no signup needed.'},
+    2: {title:'Instructions', text:'Make sure mobile data is active. Follow the short steps shown here.'},
+    3: {title:'Ready to Claim', text:'When you press Claim a confirmation code will be generated for display (demo).'}
+  };
+
+  document.querySelectorAll('button[data-action="open"]').forEach(btn=>{
+    btn.addEventListener('click', ()=> {
+      const s = btn.getAttribute('data-step');
+      modalTitle.textContent = steps[s].title;
+      modalText.textContent = steps[s].text;
+      modalExtra.style.display = (s==='3')? 'block' : 'none';
+      codeBox.textContent = '';
+      modalCopy.style.display = (s==='3')? 'inline-flex' : 'none';
+      openModal();
+    });
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  modalBack.addEventListener('click', (e)=> { if(e.target===modalBack) closeModal(); });
+
+  function genCode(){
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let s=''; for(let i=0;i<8;i++) s += chars[Math.floor(Math.random()*chars.length)];
+    return 'ASIF-3GB-'+s;
+  }
+
+  const claimMain = document.getElementById('claimMain');
+  const status = document.getElementById('status');
+
+  claimMain.addEventListener('click', ()=>{
+    // show progress then modal with code
+    status.textContent = 'Processing... please wait';
+    // visual progress simulation (short)
+    setTimeout(()=> {
+      const code = genCode();
+      codeBox.textContent = code;
+      modalTitle.textContent = 'Claim Successful';
+      modalText.textContent = 'Your confirmation code (demo) is below. This is a simulation only.';
+      modalExtra.style.display = 'block';
+      modalCopy.style.display = 'inline-flex';
+      openModal();
+      status.textContent = 'Claim processed — check confirmation code.';
+      const b = document.querySelector('.badge');
+      if(b) b.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}], {duration:350});
+    }, 1600);
+  });
+
+  modalCopy.addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(codeBox.textContent);
+      modalCopy.textContent = 'Copied';
+      setTimeout(()=> modalCopy.textContent = 'Copy Code', 1200);
+    }catch(e){
+      modalCopy.textContent = 'Copy failed';
+    }
+  });
+
+  document.getElementById('shareBtn').addEventListener('click', async ()=>{
+    const url = window.location.href;
+    try{
+      if(navigator.share) await navigator.share({title:'Asif Friday 3GB', text:'Check this Friday 3GB offer', url});
+      else { await navigator.clipboard.writeText(url); status.textContent='Link copied to clipboard.'; setTimeout(()=>status.textContent='',2500); }
+    }catch(e){
+      status.textContent='Copy the link manually: ' + url;
+    }
+  });
+
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+})();
 </script>
-
 </body>
-</html>
+            </html>
