@@ -1,200 +1,173 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Asif — Friday 3GB Offer</title>
-<meta name="description" content="Asif | Friday 3GB claim — join Telegram for updates. Demo page."/>
+<meta charset="UTF-8">
+<title>Asif | Friday 3GB Claim</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  :root{
-    --bg1:#061021;
-    --bg2:#081628;
-    --card:#0f1724;
-    --accent:#FFD14D;
-    --muted:#9fb2c9;
-    --tg:#0088cc;
-    --glass: rgba(255,255,255,0.03);
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(180deg,var(--bg1),var(--bg2));
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    color:#eaf2ff;
-    padding:20px;
-  }
+    body {
+        margin:0;
+        padding:0;
+        background:#0d0f1a;
+        font-family:Arial, sans-serif;
+        color:white;
+    }
 
-  .wrap{width:100%;max-width:760px;padding:20px}
-  .card{
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
-    border-radius:16px;
-    padding:22px;
-    box-shadow: 0 12px 40px rgba(2,8,24,0.6);
-    border:1px solid var(--glass);
-    display:grid;
-    grid-template-columns: 1fr 340px;
-    gap:20px;
-    align-items:center;
-  }
+    .header {
+        background:#111728;
+        padding:18px;
+        text-align:center;
+        font-size:22px;
+        font-weight:bold;
+        color:#ffd447;
+        box-shadow:0 3px 10px rgba(0,0,0,0.4);
+    }
 
-  /* Left (info) */
-  .left{
-    padding:8px 0;
-  }
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-  }
-  .logo{
-    width:62px;height:62px;border-radius:12px;
-    background:var(--accent);display:grid;place-items:center;color:#08121a;font-weight:900;font-size:22px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.3);
-  }
-  .brand h3{margin:0;font-size:18px}
-  .brand p{margin:0;color:var(--muted);font-size:13px}
+    .container {
+        max-width:500px;
+        margin:auto;
+        padding:20px;
+    }
 
-  .headline{
-    margin-top:12px;
-  }
-  h1{margin:0;font-size:28px;color:var(--accent);line-height:1.05}
-  p.lead{color:var(--muted);margin-top:8px;font-size:15px}
+    .offer-box {
+        background:#141b2e;
+        padding:18px;
+        border-radius:12px;
+        margin-top:18px;
+        border:1px solid rgba(255,255,255,0.08);
+    }
 
-  .features{
-    display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;
-  }
-  .pill{
-    background:rgba(255,255,255,0.02);
-    padding:8px 10px;border-radius:10px;color:var(--muted);font-weight:700;font-size:13px;border:1px solid rgba(255,255,255,0.02);
-  }
+    .title {
+        font-size:20px;
+        font-weight:bold;
+        color:#ffd447;
+        margin-bottom:6px;
+    }
 
-  /* Right (controls) */
-  .right{
-    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
-    padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
-    display:flex;flex-direction:column;align-items:center;gap:12px;
-  }
-  .badge{
-    background:#000;padding:10px 14px;border-radius:10px;font-weight:800;color:var(--accent);font-size:16px;
-  }
-  .claim{
-    width:100%;
-    display:flex;flex-direction:column;gap:10px;
-    align-items:stretch;
-  }
-  .cta{
-    display:flex;gap:10px;
-    align-items:center;
-  }
-  .btn{
-    background:var(--accent);
-    color:#07121a;
-    border:0;padding:12px;border-radius:10px;font-weight:900;cursor:pointer;font-size:15px;
-    flex:1;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-  }
-  .btn.secondary{
-    background:transparent;color:var(--accent);border:1px solid rgba(255,209,77,0.18);font-weight:800;
-  }
-  .tg{
-    display:block;width:100%;text-align:center;background:var(--tg);color:#fff;padding:11px;border-radius:10px;text-decoration:none;font-weight:800;
-  }
-  .status{
-    color:var(--muted);font-size:14px;text-align:center;min-height:20px;
-  }
+    .desc {
+        color:#b5c3d9;
+        font-size:15px;
+        margin-bottom:14px;
+    }
 
-  footer.note{margin-top:14px;color:var(--muted);font-size:13px;text-align:center}
-  @media(max-width:880px){
-    .card{grid-template-columns:1fr; padding:18px;}
-    .logo{width:52px;height:52px;font-size:18px}
-    h1{font-size:22px}
-  }
+    .task-box {
+        background:#0b0f1c;
+        padding:14px;
+        border-radius:10px;
+        margin-top:10px;
+        border:1px solid rgba(255,255,255,0.05);
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
 
-  /* small appear animation */
-  .card{transform-origin:center;animation:pop .45s ease both}
-  @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.995)}to{opacity:1;transform:none}}
+    .task-left {
+        font-size:16px;
+        font-weight:600;
+    }
+
+    .task-btn {
+        padding:8px 12px;
+        background:#ffd447;
+        border-radius:6px;
+        color:black;
+        text-decoration:none;
+        font-weight:bold;
+        font-size:14px;
+    }
+
+    .claim-btn {
+        width:100%;
+        margin-top:20px;
+        padding:14px;
+        background:#ffd447;
+        color:black;
+        border:none;
+        border-radius:10px;
+        font-size:18px;
+        font-weight:bold;
+        cursor:pointer;
+    }
+
+    .telegram-btn {
+        width:100%;
+        text-align:center;
+        display:block;
+        padding:12px;
+        background:#0088cc;
+        color:white;
+        text-decoration:none;
+        margin-top:14px;
+        border-radius:10px;
+        font-size:16px;
+        font-weight:bold;
+    }
+
+    .footer {
+        text-align:center;
+        padding:14px;
+        font-size:13px;
+        color:#8fa0b9;
+        margin-top:30px;
+    }
+
 </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="card" role="region" aria-label="Asif Friday Offer Card">
-      <div class="left">
-        <div class="brand">
-          <div class="logo">A</div>
-          <div>
-            <h3>Asif</h3>
-            <p>Friday 3GB Claim • Quick & Simple</p>
-          </div>
+
+<div class="header">
+    Asif Friday 3GB Claim
+</div>
+
+<div class="container">
+
+    <div class="offer-box">
+        <div class="title">Asif - Friday Special Offer</div>
+        <div class="desc">Complete the steps below to claim your 3GB Friday offer instantly.</div>
+
+        <!-- TASK 1 - Custom (No Gmail / No Ads) -->
+        <div class="task-box">
+            <div class="task-left">Step 1: Open Claim Page</div>
+            <a class="task-btn">Open</a>
         </div>
 
-        <div class="headline">
-          <h1>Get 3GB — Friday Special</h1>
-          <p class="lead">Limited-time offer. Claim quickly and join Telegram for instant updates and new offers.</p>
+        <!-- TASK 2 - Custom -->
+        <div class="task-box">
+            <div class="task-left">Step 2: Follow Instructions</div>
+            <a class="task-btn">Check</a>
         </div>
 
-        <div class="features" aria-hidden="true">
-          <div class="pill">No Ads</div>
-          <div class="pill">No Signup</div>
-          <div class="pill">Telegram Updates</div>
+        <!-- TASK 3 - Custom -->
+        <div class="task-box">
+            <div class="task-left">Step 3: Ready to Claim</div>
+            <a class="task-btn">Done</a>
         </div>
 
-        <footer class="note">This is a demo informational page. For real network offers use official operators.</footer>
-      </div>
+        <!-- CLAIM BUTTON -->
+        <button class="claim-btn" onclick="claimOffer()">CLAIM NOW</button>
 
-      <aside class="right">
-        <div class="badge" aria-hidden="true">Asif</div>
+        <!-- TELEGRAM -->
+        <a href="https://t.me/kingyaseen1" class="telegram-btn" target="_blank">Join Telegram for More Updates</a>
 
-        <div class="claim" aria-label="Claim section">
-          <div class="cta">
-            <button class="btn" id="claimBtn">Claim Now</button>
-            <button class="btn secondary" id="shareBtn">Share</button>
-          </div>
-
-          <a class="tg" id="tgLink" href="https://t.me/kingyaseen1" target="_blank" rel="noopener noreferrer">Join Telegram for More Updates</a>
-
-          <div class="status" id="status">Ready to claim — press the button above.</div>
-        </div>
-      </aside>
+        <div id="status" style="margin-top:12px;color:#b5c3d9;font-size:15px;"></div>
     </div>
-  </div>
+
+</div>
+
+<div class="footer">
+    © 2025 Asif Offer System — All Rights Reserved.
+</div>
 
 <script>
-  // behavior: inline message + small copy-to-clipboard share
-  (function(){
-    const claim = document.getElementById('claimBtn');
-    const status = document.getElementById('status');
-    const share = document.getElementById('shareBtn');
-    const tg = document.getElementById('tgLink');
+function claimOffer(){
+    document.getElementById("status").innerHTML = 
+        "Asif! Your Friday 3GB claim request has been received successfully.";
 
-    claim.addEventListener('click', function(){
-      // show friendly inline message (no blocking alert)
-      status.textContent = 'Asif! Aapka 3GB claim request demo mode me record ho gaya. Join Telegram for updates.';
-      // quick pulse effect on badge
-      const b = document.querySelector('.badge');
-      b.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}], {duration:400});
-      // optionally open telegram (comment out if not wanted)
-      // window.open(tg.href, '_blank');
-    });
-
-    share.addEventListener('click', async function(){
-      const url = window.location.href;
-      try{
-        if(navigator.share){
-          await navigator.share({title:'Asif Friday 3GB', text:'Check this Friday 3GB offer', url});
-        } else {
-          await navigator.clipboard.writeText(url);
-          status.textContent = 'Link copied to clipboard — share with friends!';
-        }
-      }catch(e){
-        // fallback
-        status.textContent = 'Copy this link manually: ' + url;
-      }
-    });
-  })();
+    // Optional Auto-open Telegram
+    // window.open("https://t.me/kingyaseen1", "_blank");
+}
 </script>
+
 </body>
-    </html>
+</html>
